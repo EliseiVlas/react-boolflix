@@ -18,6 +18,7 @@ import HomePage from "./pages/HomePage";
 function App() {
   // stato delle card
   const [card, setCard] = useState([]);
+  const [cardSerie, setCardSerie] = useState([]);
   const [query, setQuery] = useState("");
   // funzione di gestione chiamata all'API
   function fetchCard(nuovoApi) {
@@ -30,12 +31,24 @@ function App() {
           
           )
   }
+  // funzione di gestione chiamata all'API delle serie
+  function fetchCardSerie(nuovoApi) {
+
+    const nuovoApiAggiornatoConPlus = nuovoApi.split(" ").join("+");
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=${nuovoApiAggiornatoConPlus}`)
+          .then((res) =>{
+            setCardSerie(res.data.results)
+          }
+          
+          )
+  }
 
   // Solo al primo rendering
   useEffect(() => {fetchCard(query)}, [query]);
+  useEffect(() => {fetchCardSerie(query)}, [query]);
 
   return (
-    <GlobalContext.Provider value={{card}}>
+    <GlobalContext.Provider value={{card, cardSerie}}>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout setQuery={setQuery} />} >
