@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import Flag from 'react-world-flags'
 
 const languageToCountry = {
@@ -36,7 +39,13 @@ const CreazioneCard = (props) => {
                     <span>{film.original_language}</span> // Se non trova il codice, mostra un'icona globale
                 )}
                 <br />
-                <span>{film.vote_average}</span>
+                <p>
+                {Math.ceil(film.vote_average / 2) >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                {Math.ceil(film.vote_average / 2) >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                {Math.ceil(film.vote_average / 2) >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                {Math.ceil(film.vote_average / 2) >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                {Math.ceil(film.vote_average / 2) >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                </p>
             </div>
         </>
     )

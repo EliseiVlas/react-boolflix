@@ -70,3 +70,10 @@ header input,button{
   border-radius: 10px;
   border: 2px solid black;
 }
+
+.star{
+  color: rgb(255, 230, 0);
+}
+.star2{
+  color: white;
+}
