@@ -60,3 +60,13 @@ header input,button{
   border-radius: 10px;
   border: 2px solid black;
 }
+.error{
+  background-color: red;
+  width: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 10px;
+  border: 2px solid black;
+}

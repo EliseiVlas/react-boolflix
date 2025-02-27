@@ -12,8 +12,11 @@ export default function HomePage() {
     
 
     return (
-        <main>
-            <div className="titolo"><h1>Film</h1></div>
+        <main>{!card.length && !cardSerie.length ? (
+            <h1 className="error">Non esistono film con questo nome</h1>
+        ) : (
+            <>
+             <div className="titolo"><h1>Film</h1></div>
             <div className="main">
                 {card.map((film) => (
                     <CreazioneCard key={film.id} film={film} />
@@ -26,6 +29,8 @@ export default function HomePage() {
                     <CreazioneCard key={film.id} film={film} />
                 ))}
             </div>
+            </>
+        )}
         </main>
     );
 }
