@@ -30,22 +30,31 @@ const CreazioneCard = (props) => {
     return (
         <>
             <div className='cardItem'>
-            <img src={`https://image.tmdb.org/t/p/w342/${film.poster_path}`} alt={film.title || film.name} />
-                <h1>{film.title || film.name}</h1>
-                <h2>{film.original_title || film.original_name}</h2>
-                {countryCode ? (
-                    <Flag code={countryCode} style={{ width: "30px", height: "20px" }} />
-                ) : (
-                    <span>{film.original_language}</span> // Se non trova il codice, mostra un'icona globale
-                )}
-                <br />
-                <p>
-                {Math.ceil(film.vote_average / 2) >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                {Math.ceil(film.vote_average / 2) >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                {Math.ceil(film.vote_average / 2) >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                {Math.ceil(film.vote_average / 2) >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                {Math.ceil(film.vote_average / 2) >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
-                </p>
+                <img src={`https://image.tmdb.org/t/p/w342/${film.poster_path}`} alt={film.title || film.name} />
+                <div className="none">
+                    <span className="bold">{"Titolo:"}</span>
+                    <span>{film.title || film.name}</span>
+                    <br />
+                    <span className="bold">{"Titolo originale:"}</span>
+                    <span>{film.original_title || film.original_name}</span>
+                    {countryCode ? (
+                        <Flag code={countryCode} style={{ width: "30px", height: "20px" }} />
+                    ) : (
+                        <span>{film.original_language}</span> // Se non trova il codice, mostra un'icona globale
+                    )}
+                    <br />
+                    <span className="bold">{"Voto:"}</span>
+                    <span>
+                    {Math.ceil(film.vote_average / 2) >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                    {Math.ceil(film.vote_average / 2) >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                    {Math.ceil(film.vote_average / 2) >= 3 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                    {Math.ceil(film.vote_average / 2) >= 4 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                    {Math.ceil(film.vote_average / 2) >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
+                    </span>
+                    <br />
+                    <span className="bold">{"Overview:"}</span>
+                    <span>{film.overview}</span>
+                </div>
             </div>
         </>
     )

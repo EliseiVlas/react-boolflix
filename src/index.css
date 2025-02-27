@@ -27,15 +27,19 @@ header input,button{
 .cardItem{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 20%;
-  align-items: center;
-  border: 2px solid black;
-  background-color: rgb(192, 192, 192);
+  align-items: start;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
   margin: 5px;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: lighter;
 }
 .cardItem img{
-  width: 95%;
-  padding-top: 8px;
+  width: 100%;
 }
 .main{
   display: flex;
@@ -71,9 +75,25 @@ header input,button{
   border: 2px solid black;
 }
 
+/* MODIFICA CARD */
 .star{
   color: rgb(255, 230, 0);
 }
 .star2{
   color: white;
+}
+.none{
+  display: none;
+  padding: 10px;
+  
+}
+.cardItem:hover .none{
+  display: block;
+}
+.cardItem:hover img{
+  display: none;
+} 
+.bold{
+  font-weight: bold;
+  font-size: 20px;
 }
