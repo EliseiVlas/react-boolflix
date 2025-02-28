@@ -10,37 +10,78 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
-  color: red;
+  background-color: #141414;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 header h1{
   padding-left: 20px;
   font-size: 50px;
+  color: red;
+  font-weight: bold;
+    transition: transform 0.3s ease;
 }
-header input,button{
-  padding: 10px 20px;
-  margin-right: 5px;
+.nav-link h1:hover {
+  transform: scale(1.1);
+}
+/* Link della navbar */
+.nav-link a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link a:hover {
+  color:blue;
+}
+
+/* Stile del form di ricerca */
+#form-search {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input di ricerca */
+#form-search input {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: #222;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#form-search input::placeholder {
+  color: #888;
+}
+
+#form-search input:focus {
+  border-color: red;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+/* Bottone di ricerca */
+#form-search button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#form-search button:hover {
+  background-color: darkred;
+  transform: scale(1.05);
 }
 
 /* card */
 
-.cardItem{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 20%;
-  align-items: start;
-  border: 2px solid white;
-  background-color: black;
-  color: white;
-  margin: 5px;
-  margin-bottom: 30px;
-  font-size: 17px;
-  font-weight: lighter;
-}
-.cardItem img{
-  width: 100%;
-}
 .main{
   display: flex;
   flex-wrap: wrap;
@@ -76,24 +117,190 @@ header input,button{
 }
 
 /* MODIFICA CARD */
-.star{
-  color: rgb(255, 230, 0);
+/* Stile generale della card */
+.cardItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 220px;
+  height: 330px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #141414;
+  color: white;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
-.star2{
+
+/* Effetto hover */
+.cardItem:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(255, 0, 0, 0.8);
+}
+
+/* Stile dell'immagine */
+.cardItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Quando si passa sopra la card, nasconde l'immagine */
+.cardItem:hover img {
+  opacity: 0;
+}
+
+/* Contenuto nascosto che appare al passaggio del mouse */
+.none {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Mostra informazioni quando si passa sopra la card */
+.cardItem:hover .none {
+  opacity: 1;
+}
+
+/* Stile delle stelle */
+.star {
+  color: rgb(255, 230, 0);
+  font-size: 18px;
+  margin: 2px;
+}
+
+.star2 {
+  color: #444;
+  font-size: 18px;
+  margin: 2px;
+}
+
+/* Testo in grassetto */
+.bold {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Layout della griglia per organizzare le card */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+/* modifica pagine  */
+.nav-link{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.nav-link a{
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  transition: color 0.3s ease;
+}
+.nav-link a:hover {
+  color: red;
+}
+
+/* modifica footer */
+/* Stile generale del footer */
+.footer {
+  background-color: black;
+  color: gray;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Navbar nel footer */
+.footer-nav {
+  margin-bottom: 10px;
+}
+
+/* Menu della navbar */
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Link della navbar */
+.footer-menu li a {
+  text-decoration: none;
+  color: gray;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-menu li a:hover {
   color: white;
 }
-.none{
-  display: none;
-  padding: 10px;
-  
+
+/* Testo del footer */
+.footer-text {
+  font-size: 12px;
 }
-.cardItem:hover .none{
-  display: block;
+.active{
+color: red;
 }
-.cardItem:hover img{
-  display: none;
-} 
-.bold{
-  font-weight: bold;
-  font-size: 20px;
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .cardItem {
+      width: 180px;
+      height: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cardItem {
+      width: 150px;
+      height: 250px;
+  }
+
+  .bold {
+      font-size: 14px;
+  }
+
+  .star, .star2 {
+      font-size: 14px;
+  }
+  #form-search input{
+    padding: 1px 3px;
+  }
+  #form-search button{
+    padding: 1px 3px;
+  }
+  header h1{
+    font-size: 40px;
+  }
+  .nav-link a{
+    font-size: 30px;
+  }
+  header{
+    flex-direction: column;
+  }
 }

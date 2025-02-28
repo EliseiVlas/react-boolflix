@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 
 export default function Header({ setQuery }) {
@@ -13,7 +14,11 @@ function handleSubmit(e) {
   }
     return (
         <header>
-            <h1>Bootflix</h1>
+            <div className="nav-link">
+                <NavLink to={"/"}><h1>Bootflix</h1></NavLink>
+                <NavLink to={"/film"}>Film</NavLink>
+                <NavLink to={"/serie"}>Serie TV</NavLink>
+            </div>
             <form id='form-search' onSubmit={handleSubmit}>
                 {/* valore nome piatto */}
                 <input

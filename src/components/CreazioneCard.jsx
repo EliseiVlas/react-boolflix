@@ -32,10 +32,10 @@ const CreazioneCard = (props) => {
             <div className='cardItem'>
                 <img src={`https://image.tmdb.org/t/p/w342/${film.poster_path}`} alt={film.title || film.name} />
                 <div className="none">
-                    <span className="bold">{"Titolo:"}</span>
+                    <span className="bold">{"Titolo: "}</span>
                     <span>{film.title || film.name}</span>
                     <br />
-                    <span className="bold">{"Titolo originale:"}</span>
+                    <span className="bold">{"Titolo originale: "}</span>
                     <span>{film.original_title || film.original_name}</span>
                     {countryCode ? (
                         <Flag code={countryCode} style={{ width: "30px", height: "20px" }} />
@@ -43,7 +43,7 @@ const CreazioneCard = (props) => {
                         <span>{film.original_language}</span> // Se non trova il codice, mostra un'icona globale
                     )}
                     <br />
-                    <span className="bold">{"Voto:"}</span>
+                    <span className="bold">{"Voto: "}</span>
                     <span>
                     {Math.ceil(film.vote_average / 2) >= 1 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
                     {Math.ceil(film.vote_average / 2) >= 2 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
@@ -52,7 +52,7 @@ const CreazioneCard = (props) => {
                     {Math.ceil(film.vote_average / 2) >= 5 ? <FontAwesomeIcon className="star" icon={faStar} /> : <FontAwesomeIcon className="star2" icon={faStar} />}
                     </span>
                     <br />
-                    <span className="bold">{"Overview:"}</span>
+                    <span className="bold">{"Overview: "}</span>
                     <span>{film.overview}</span>
                 </div>
             </div>

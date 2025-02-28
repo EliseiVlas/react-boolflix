@@ -14,6 +14,8 @@ import DefaultLayout from "./layouts/DefaultLayout";
 
 // Pages
 import HomePage from "./pages/HomePage";
+import PageFilm from "./pages/PageFilm";
+import PageSerial from "./pages/PageSerial";
 
 function App() {
   // stato delle card
@@ -53,6 +55,8 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout setQuery={setQuery} />} >
             <Route path="/" element={<HomePage />} />
+            <Route path="/film" element={<PageFilm />} />
+            <Route path="/serie" element={<PageSerial />} />
           </Route>
         </Routes>
       </BrowserRouter >
